@@ -12,6 +12,8 @@ services:
   control-api:
     container_name: datalens-control-api
     image: ghcr.io/datalens-tech/datalens-control-api:0.2046.0
+    #ports:
+    #  - 8031:8080
     environment:
       BI_API_UWSGI_WORKERS_COUNT: 4
       CONNECTOR_AVAILABILITY_VISIBLE: "clickhouse,postgres,chyt,ydb"
@@ -31,6 +33,8 @@ services:
   data-api:
     container_name: datalens-data-api
     image: ghcr.io/datalens-tech/datalens-data-api:0.2046.0
+    #ports:
+    #  - 8032:8080
     environment:
       GUNICORN_WORKERS_COUNT: 5
       RQE_FORCE_OFF: 1
@@ -65,6 +69,8 @@ services:
   pg-us:
     container_name: datalens-pg-us
     image: postgres:13-alpine
+    ports:
+      - 5432:5432
     environment:
       POSTGRES_DB: us-db-ci_purgeable
       POSTGRES_USER: us
@@ -75,6 +81,9 @@ services:
   us:
     container_name: datalens-us
     image: ghcr.io/datalens-tech/datalens-us:0.143.0
+    #ports:
+    #  - 8030:3030
+    #image: akrasnov87/datalens-us:0.143.0
     depends_on:
       - pg-us
     environment:
@@ -86,7 +95,7 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
-
+      #NODE_RPC_URL: ${NODE_RPC_URL:-1}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
@@ -94,7 +103,8 @@ services:
 
   datalens:
     container_name: datalens-ui
-    image: ghcr.io/datalens-tech/datalens-ui:0.1245.0
+    #image: ghcr.io/datalens-tech/datalens-ui:0.1245.0
+    image: akrasnov87/datalens-ui:0.1245.0
     ports:
       - ${UI_PORT:-8080}:80
     depends_on:
@@ -107,7 +117,8 @@ services:
       APP_ENV: "production"
       APP_INSTALLATION: "opensource"
       AUTH_POLICY: "disabled"
-      US_ENDPOINT: "http://us"
+      #US_ENDPOINT: "http://us"
+      US_ENDPOINT: "http://host.docker.internal:3030"
       BI_API_ENDPOINT: "http://control-api:8080"
       BI_DATA_ENDPOINT: "http://data-api:8080"
       NODE_EXTRA_CA_CERTS: "/usr/local/share/ca-certificates/cert.pem"
