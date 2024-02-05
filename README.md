@@ -39,6 +39,13 @@ If you want to use a different port (e.g. `8081`), you can set it using the `UI_
 UI_PORT=8081 docker compose up
 ```
 
+Для подключения к RPC требуется указать аргумент `NODE_RPC_URL`, Данный аргумент позволяет прокидывать авторизованные данные между `datalens` и `rpc node`.
+
+```bash
+NODE_RPC_URL=http://localhost:5000/dev/rpc docker compose up
+```
+
+
 <details>
       <summary>Notice on Highcharts usage</summary>
 

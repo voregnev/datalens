@@ -1,5 +1,12 @@
 # Changelog
 
+## 2024-02-05
+
+### Changed
+- контейнеры datalens-us и datalens-ui изменены и созданы собственные образы на docker hub
+- datalens-us: 0.143.0 -> 0.143.0-1
+- datalens-ui: 0.1245.0 -> 0.1245.0-1
+
 ## 2024-01-26
 
 ### Updated images
