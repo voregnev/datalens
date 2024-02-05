@@ -3,3 +3,4 @@ pg-demo-connection/data
 certs
 .DS_Store
 .idea
+.env
