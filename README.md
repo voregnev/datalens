@@ -122,3 +122,7 @@ If `datalens-us` container does not start even though you provided correct certi
 #### Why do i see two compose files: docker-compose.yml & docker-compose-dev.yml?
 
 `docker-compose-dev.yml` is a special compose file that is needed only for development purposes. When you run DataLens in production mode, you always need to use `docker-compose.yml`. The `docker-compose up` command uses it by default. 
+
+#### Хочу отключить авторизацию RPC
+
+Просто закомментируйте `NODE_RPC_URL` в `docker-compose.yml`
