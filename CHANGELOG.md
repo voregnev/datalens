@@ -1,5 +1,13 @@
 # Changelog
 
+## 2024-03-01
+
+Fixed:
+
+- доработана проверка на авторизацию для приватных запросов.
+- datalens-us: 0.143.0-4 -> 0.143.0-5
+- datalens-control-api:0.2046.0 -> datalens-control-api:0.2046.0-1
+
 ## 2024-02-09
 
 ### Changed
