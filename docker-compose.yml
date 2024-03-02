@@ -11,8 +11,8 @@ services:
 
   control-api:
     container_name: datalens-control-api
-    #image: ghcr.io/datalens-tech/datalens-control-api:0.2046.0
-    image: akrasnov87/datalens-control-api:0.2046.0-1
+    image: ghcr.io/datalens-tech/datalens-control-api:0.2046.0
+    #image: akrasnov87/datalens-control-api:0.2046.0-2
     #ports:
     #  - 8031:8080
     environment:
