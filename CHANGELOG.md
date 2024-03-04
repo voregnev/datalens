@@ -2,6 +2,82 @@
 
 ## 2024-03-01
 
+### Updated images
+
+- datalens-ui: 0.1316.0 -> 0.1384.0
+
+### Changes
+
+- Workbook page redesign ([ui:#562](https://github.com/datalens-tech/datalens-ui/pull/562))
+- Fix displaying alias modal on select ignore link ([ui:#623](https://github.com/datalens-tech/datalens-ui/pull/623))
+- Fix background color for null values in flat table ([ui:#634](https://github.com/datalens-tech/datalens-ui/pull/634))
+- Fix title selection for segments ([ui:#637](https://github.com/datalens-tech/datalens-ui/pull/637))
+- Add dnd for sorting manual values on settings ([ui:#677](https://github.com/datalens-tech/datalens-ui/pull/677))
+- Add opening anchor links in self instead of blank ([ui:#689](https://github.com/datalens-tech/datalens-ui/pull/689))
+
+
+#### Some improvements for relations:
+
+- New relations improvements ([ui:#647](https://github.com/datalens-tech/datalens-ui/pull/647))
+- Fix aliases validation for the same dataset ([ui:#652](https://github.com/datalens-tech/datalens-ui/pull/652))
+- Add problematic alias to error output ([ui:#654](https://github.com/datalens-tech/datalens-ui/pull/654))
+- Fix invalid popup height ([ui:#664](https://github.com/datalens-tech/datalens-ui/pull/664))
+- Dialog relations fix & improve disconnect action ([ui:#669](https://github.com/datalens-tech/datalens-ui/pull/669))
+- Alias modal fix ([ui:#684](https://github.com/datalens-tech/datalens-ui/pull/684))
+- Fix some relations cases with external controls ([ui:#685](https://github.com/datalens-tech/datalens-ui/pull/685))
+- Fix relations for QL chart ([ui:#691](https://github.com/datalens-tech/datalens-ui/pull/691))
+- Returning a lost icon ([ui:#693](https://github.com/datalens-tech/datalens-ui/pull/693))
+
+## 2024-02-22
+
+### Updated images
+- datalens-control-api: 0.2046.0 -> 0.2048.2
+- datalens-data-api: 0.2046.0 -> 0.2048.2
+
+### Changes
+
+- Minor improvements
+
+## 2024-02-16
+
+### Updated images
+- datalens-us: 0.157.0 -> 0.159.0
+- datalens-ui: 0.1296.0 -> 0.1316.0
+
+### Changed
+
+- Refactored logic of displaying new relations ([ui:#602](https://github.com/datalens-tech/datalens-ui/pull/602))
+- Fix preload dark theme ([ui:#610](https://github.com/datalens-tech/datalens-ui/pull/610))
+- Fix chart coloring with null value ([ui:#593](https://github.com/datalens-tech/datalens-ui/pull/593))
+- Fix axis labels formatting for bar charts  ([ui:#592](https://github.com/datalens-tech/datalens-ui/pull/592))
+
+## 2024-02-09
+
+### Updated images
+- datalens-us: 0.149.0 -> 0.157.0
+- datalens-ui: 0.1268.0 -> 0.1296.0
+
+### Changed
+- Support inner label in datepicker control ([ui:#566](https://github.com/datalens-tech/datalens-ui/pull/566))
+- Add required selector option ([ui:#563](https://github.com/datalens-tech/datalens-ui/pull/563))
+- Add dash ActionPanel animation ([ui:#560](https://github.com/datalens-tech/datalens-ui/pull/560))
+- Fix remove alias area, fix alias controls icons displaying ([ui:#585](https://github.com/datalens-tech/datalens-ui/pull/585))
+- Fix flat table gradient coloring ([ui:#559](https://github.com/datalens-tech/datalens-ui/pull/559))
+
+## 2024-02-02
+
+### Updated images
+- datalens-us: 0.143.0 -> 0.149.0
+- datalens-ui: 0.1245.0 -> 0.1268.0
+
+### Changed
+- Changed hide retry on some errors ([ui:#532](https://github.com/datalens-tech/datalens-ui/pull/532))
+- Fix charts with params and datasets relations ([ui:#521](https://github.com/datalens-tech/datalens-ui/pull/521))
+- Fix save button behaviour for QL charts ([ui:#548](https://github.com/datalens-tech/datalens-ui/pull/548))
+- Fix bundlesize ([ui:#551](https://github.com/datalens-tech/datalens-ui/pull/551))
+
+## 2024-03-01
+
 Fixed:
 
 - доработана проверка на авторизацию для приватных запросов.

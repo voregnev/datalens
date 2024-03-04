@@ -11,8 +11,7 @@ services:
 
   control-api:
     container_name: datalens-control-api
-    image: ghcr.io/datalens-tech/datalens-control-api:0.2046.0
-    #image: akrasnov87/datalens-control-api:0.2046.0-2
+    image: ghcr.io/datalens-tech/datalens-control-api:0.2048.2
     #ports:
     #  - 8031:8080
     environment:
@@ -34,7 +33,7 @@ services:
 
   data-api:
     container_name: datalens-data-api
-    image: ghcr.io/datalens-tech/datalens-data-api:0.2046.0
+    image: ghcr.io/datalens-tech/datalens-data-api:0.2048.2
     #ports:
     #  - 8032:8080
     environment:
@@ -83,7 +82,7 @@ services:
 
   us:
     container_name: datalens-us
-    #image: ghcr.io/datalens-tech/datalens-us:0.143.0
+    #image: ghcr.io/datalens-tech/datalens-us:0.159.0
     #ports:
     #  - 8030:3030
     image: akrasnov87/datalens-us:0.143.0-5
@@ -106,7 +105,7 @@ services:
 
   datalens:
     container_name: datalens-ui
-    #image: ghcr.io/datalens-tech/datalens-ui:0.1245.0
+    #image: ghcr.io/datalens-tech/datalens-ui:0.1384.0
     image: akrasnov87/datalens-ui:0.1245.0-4
     ports:
       - ${UI_PORT:-8080}:80
