@@ -84,10 +84,10 @@ services:
     container_name: datalens-us
     depends_on:
       - pg-us
-    #image: ghcr.io/datalens-tech/datalens-us:0.159.0
+    #image: ghcr.io/datalens-tech/datalens-us:0.168.0
     #ports:
     #  - 8030:3030
-    image: akrasnov87/datalens-us:0.159.0-3
+    image: akrasnov87/datalens-us:0.168.0
     environment:
       APP_INSTALLATION: "opensource"
       APP_ENV: "prod"
@@ -105,8 +105,8 @@ services:
 
   datalens:
     container_name: datalens-ui
-    #image: ghcr.io/datalens-tech/datalens-ui:0.1384.0
     image: akrasnov87/datalens-ui:0.1410.0
+    #image: ghcr.io/datalens-tech/datalens-ui:0.1410.0
     ports:
       - ${UI_PORT:-8080}:80
     depends_on:
