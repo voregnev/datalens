@@ -12,8 +12,8 @@ services:
   control-api:
     container_name: datalens-control-api
     image: ghcr.io/datalens-tech/datalens-control-api:0.2048.2
-    ports:
-      - 8031:8080
+    #ports:
+    #  - 8031:8080
     environment:
       BI_API_UWSGI_WORKERS_COUNT: 4
       CONNECTOR_AVAILABILITY_VISIBLE: "clickhouse,postgres,chyt,ydb"
@@ -34,8 +34,8 @@ services:
   data-api:
     container_name: datalens-data-api
     image: ghcr.io/datalens-tech/datalens-data-api:0.2048.2
-    ports:
-      - 8032:8080
+    #ports:
+    #  - 8032:8080
     environment:
       GUNICORN_WORKERS_COUNT: 5
       RQE_FORCE_OFF: 1
@@ -97,7 +97,6 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
-      NODE_RPC_URL: ${NODE_RPC_URL:-1}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
