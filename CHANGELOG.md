@@ -1,6 +1,6 @@
 # Changelog
 
-## 2024-03-12
+## 2024-03-20
 
 Fixed:
 
@@ -8,8 +8,47 @@ Fixed:
 
 Контейнеры:
 
-- datalens-ui: 0.1384.0 -> 0.1410.0
-- datalens-us: 0.159.0 -> 0.168.0
+- datalens-ui: 0.1410.0 -> 0.1440.0
+- datalens-us: 0.168.0 -> 0.175.0
+
+## 2024-03-18
+
+### Updated images
+
+- datalens-control-api: 0.2048.2 -> 0.2058.0
+- datalens-data-api: 0.2048.2 -> 0.2058.0
+
+### Changes
+
+- Use root ca explicitly in http-based adapters reducing disk reads ([backend:#262](https://github.com/datalens-tech/datalens-backend/pull/262))
+- Allow constant expressions in GROUP BY for everything except YDB ([backend:#290](https://github.com/datalens-tech/datalens-backend/pull/290))
+- Enable gp_recursive_cte during statement preparation in the Greenplum connector ([backend:#175](https://github.com/datalens-tech/datalens-backend/pull/175))
+- Fix a date subtraction bug in MySQL connector ([backend:#314](https://github.com/datalens-tech/datalens-backend/pull/314))
+- Added new query types for DashSQL:
+  * generic_distinct - Generic type for queries with a single-column result (i.e. all distinct values of a dimension column)
+  * generic_label_values - More specific than generic_distinct for connectors that have the concept of labels
+
+[Full changelog](https://github.com/datalens-tech/datalens-backend/releases/tag/v0.2058.0).
+
+## 2024-03-16
+
+### Updated images
+
+- datalens-us: 0.168.0 -> 0.175.0
+- datalens-ui: 0.1410.0 -> 0.1440.0
+
+### Changes
+
+- Unify empty states styles ([ui:#731](https://github.com/datalens-tech/datalens-ui/pull/731))
+- Switched to `@diplodoc/transform` v4, changed markdown default styles ([ui:#740](https://github.com/datalens-tech/datalens-ui/pull/740))
+- Minor improvements for mobile version ([ui:#763](https://github.com/datalens-tech/datalens-ui/pull/763))
+
+#### Some improvements for relations:
+
+- Improve disable dash relations select ([ui:#767](https://github.com/datalens-tech/datalens-ui/pull/767))
+- Fix displaying saved new dash relation, disable close relations modal by esc and click by outside ([ui:#759](https://github.com/datalens-tech/datalens-ui/pull/759))
+- Add indirect relation unknown relations support ([ui:#758](https://github.com/datalens-tech/datalens-ui/pull/758))
+- Fix random aliases deletion ([ui:#770](https://github.com/datalens-tech/datalens-ui/pull/770))
 
 ## 2024-03-07
 
