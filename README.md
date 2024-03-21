@@ -147,3 +147,15 @@ NODE_RPC_URL="http://10.10.6.100:5000/dev/rpc"
 git remote add upstream https://github.com/datalens-tech/datalens.git
 git pull upstream main
 </pre>
+
+## Инструкция по разворачиванию локальной копии
+
+- запустить первияный проект
+- сделать копию us-db-ci_purgeable
+- через pg_admin сделать резервное копирование данных (только данных) - в начтройках использовать INSERT
+- применить инструкцию в проекте (нуждно исправить ошибку с функцией naturalsort)
+
+### Запуск для iserv
+<pre>
+docker compose -f docker-compose-iserv.yml --env-file ./.env.iserv up -d
+</pre>
