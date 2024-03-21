@@ -81,8 +81,8 @@ services:
     depends_on:
       - pg-us
     #image: ghcr.io/datalens-tech/datalens-us:0.175.0
-    #ports:
-    #  - 8030:3030
+    ports:
+      - 8030:3030
     image: akrasnov87/datalens-us:0.175.0
     environment:
       APP_INSTALLATION: "opensource"
@@ -93,6 +93,7 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
+
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
