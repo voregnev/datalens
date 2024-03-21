@@ -54,8 +54,6 @@ services:
   us:
     container_name: datalens-us
     image: akrasnov87/datalens-us:0.175.0
-    #ports:
-    #  - "8083:80"
     environment:
       APP_INSTALLATION: "opensource"
       APP_ENV: "prod"
@@ -65,9 +63,10 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
-    #extra_hosts:
-      #- "host.docker.internal:host-gateway"
-      #- "host.docker.internal.db:192.168.17.46"
+      NODE_RPC_URL: ${NODE_RPC_URL:-0}
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./certs:/certs
 
