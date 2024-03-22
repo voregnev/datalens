@@ -93,6 +93,7 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
+      NODE_RPC_URL: ${NODE_RPC_URL:-0}
 
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -115,8 +116,8 @@ services:
       APP_ENV: "production"
       APP_INSTALLATION: "opensource"
       AUTH_POLICY: "disabled"
-      US_ENDPOINT: "http://us"
-      #US_ENDPOINT: "http://host.docker.internal:8030"
+      #US_ENDPOINT: "http://us"
+      US_ENDPOINT: "http://host.docker.internal:8030"
       BI_API_ENDPOINT: "http://control-api:8080"
       BI_DATA_ENDPOINT: "http://data-api:8080"
       NODE_EXTRA_CA_CERTS: "/usr/local/share/ca-certificates/cert.pem"

@@ -156,6 +156,8 @@ git pull upstream main
 - применить инструкцию в проекте (нуждно исправить ошибку с функцией naturalsort)
 
 ### Запуск для iserv
+В корне проекта есть специальный `compose` файл:
+
 <pre>
-docker compose -f docker-compose-iserv.yml --env-file ./.env.iserv up -d
+docker compose -f docker-compose-lite.yml --env-file ./.env.iserv up -d
 </pre>
