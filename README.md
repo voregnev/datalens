@@ -159,5 +159,10 @@ git pull upstream main
 В корне проекта есть специальный `compose` файл:
 
 <pre>
-docker compose -f docker-compose-lite.yml --env-file ./.env.iserv up -d
+docker compose -p datalens_dev -f docker-compose-lite.yml --env-file ./.env.iserv up -d
+</pre>
+
+Просмотр логов:
+<pre>
+docker compose -p datalens_dev --env-file ./.env.datalens.dev logs -n 100
 </pre>
