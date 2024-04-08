@@ -11,7 +11,7 @@ services:
 
   control-api:
     container_name: datalens-control-api-${APP_ENV}
-    image: ghcr.io/datalens-tech/datalens-control-api:0.2058.0
+    image: akrasnov87/datalens-control-api:0.2058.0
     environment:
       BI_API_UWSGI_WORKERS_COUNT: 4
       CONNECTOR_AVAILABILITY_VISIBLE: "clickhouse,postgres,chyt,ydb"
@@ -53,7 +53,7 @@ services:
 
   us:
     container_name: datalens-us-${APP_ENV}
-    image: akrasnov87/datalens-us:0.175.0
+    image: akrasnov87/datalens-us:0.185.0
     environment:
       APP_INSTALLATION: "opensource"
       APP_ENV: "prod"
@@ -72,9 +72,9 @@ services:
 
   datalens:
     container_name: datalens-ui-${APP_ENV}
-    image: akrasnov87/datalens-ui:0.1440.0
+    image: akrasnov87/datalens-ui:0.1488.0
     ports:
-      - ${UI_PORT:-8080}:80
+      - ${UI_PORT:-8080}:8080
     depends_on:
       - us
       - control-api
