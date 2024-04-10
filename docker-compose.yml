@@ -24,8 +24,8 @@ services:
       #US_HOST: "http://host.docker.internal:8030"
       US_MASTER_TOKEN: "fake-us-master-token"
       CONFIG_PATH: "/etc/backend-configs/api.yaml"
-    ports:
-      - 8031:8080
+    #ports:
+    #  - 8031:8080
     depends_on:
       - us
     volumes:
@@ -48,8 +48,8 @@ services:
       #US_HOST: "http://host.docker.internal:8030"
       US_MASTER_TOKEN: "fake-us-master-token"
       CONFIG_PATH: "/etc/backend-configs/api.yaml"
-    ports:
-      - 8032:8080
+    #ports:
+    #  - 8032:8080
     depends_on:
       - us
       - pg-compeng
