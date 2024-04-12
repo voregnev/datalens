@@ -20,12 +20,12 @@ services:
       DL_CRY_ACTUAL_KEY_ID: key_1
       DL_CRY_KEY_VAL_ID_key_1: "h1ZpilcYLYRdWp7Nk8X1M1kBPiUi8rdjz9oBfHyUKIk="
       RQE_SECRET_KEY: ""
-      US_HOST: "http://us"
-      #US_HOST: "http://host.docker.internal:8030"
+      #US_HOST: "http://us"
+      US_HOST: "http://host.docker.internal:8030"
       US_MASTER_TOKEN: "fake-us-master-token"
       CONFIG_PATH: "/etc/backend-configs/api.yaml"
-    #ports:
-    #  - 8031:8080
+    ports:
+      - 8031:8080
     depends_on:
       - us
     volumes:
@@ -44,12 +44,12 @@ services:
       DL_CRY_KEY_VAL_ID_key_1: "h1ZpilcYLYRdWp7Nk8X1M1kBPiUi8rdjz9oBfHyUKIk="
       BI_COMPENG_PG_ON: 1
       BI_COMPENG_PG_URL: "postgresql://postgres:postgres@pg-compeng:5432/postgres"
-      US_HOST: "http://us"
-      #US_HOST: "http://host.docker.internal:8030"
+      #US_HOST: "http://us"
+      US_HOST: "http://host.docker.internal:8030"
       US_MASTER_TOKEN: "fake-us-master-token"
       CONFIG_PATH: "/etc/backend-configs/api.yaml"
-    #ports:
-    #  - 8032:8080
+    ports:
+      - 8032:8080
     depends_on:
       - us
       - pg-compeng
@@ -86,7 +86,7 @@ services:
     #image: ghcr.io/datalens-tech/datalens-us:0.185.0
     #ports:
     #  - 8030:80
-    image: akrasnov87/datalens-us:0.185.0
+    image: akrasnov87/datalens-us:0.185.1
     environment:
       APP_INSTALLATION: "opensource"
       APP_ENV: "prod"
@@ -105,7 +105,7 @@ services:
 
   datalens:
     container_name: datalens-ui
-    image: akrasnov87/datalens-ui:0.1488.0
+    image: akrasnov87/datalens-ui:0.1488.1
     #image: ghcr.io/datalens-tech/datalens-ui:0.1488.0
     ports:
       - ${UI_PORT:-8080}:8080
