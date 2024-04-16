@@ -166,3 +166,11 @@ docker compose -p datalens_dev -f docker-compose-lite.yml --env-file ./.env.iser
 <pre>
 docker compose -p datalens_dev --env-file ./.env.datalens.dev logs -n 100
 </pre>
+
+## Локальное сохранение
+<pre>
+docker save -o containers/datalens-control-api.tar akrasnov87/datalens-control-api:0.2058.0
+docker save -o containers/datalens-data-api.tar ghcr.io/datalens-tech/datalens-data-api:0.2058.0
+docker save -o containers/datalens-us.tar akrasnov87/datalens-us:0.189.0
+docker save -o containers/datalens-ui.tar akrasnov87/datalens-ui:0.1532.0
+</pre>
