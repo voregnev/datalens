@@ -33,6 +33,55 @@ Fixed:
 - datalens-ui: 0.1410.0 -> 0.1440.0
 - datalens-us: 0.168.0 -> 0.175.0
 
+## 2024-04-15
+
+- datalens-us: 0.185.0 -> 0.189.0
+- datalens-ui: 0.1488.0 -> 0.1532.0
+
+### Changes
+
+- Fix custom palettes in QL charts ([ui:#835](https://github.com/datalens-tech/datalens-ui/pull/835))
+- Fix pivot table with page number over limit ([ui:#839](https://github.com/datalens-tech/datalens-ui/pull/839))
+- Fix default displaying retry button for chart edit modes ([ui:#845](https://github.com/datalens-tech/datalens-ui/pull/845))
+- Fix double request on Run button click in QL ([ui:#852](https://github.com/datalens-tech/datalens-ui/pull/852))
+- Add text&title widget autoheight setting ([ui:#880](https://github.com/datalens-tech/datalens-ui/pull/880))
+
+## 2024-04-05
+
+- datalens-us: 0.184.0 -> 0.185.0
+- datalens-ui: 0.1485.0 -> 0.1488.0
+
+### Changes
+
+- Fix flat table with totals and without data ([ui:#834](https://github.com/datalens-tech/datalens-ui/pull/834))
+
+## 2024-04-01
+
+- datalens-us: 0.179.0 -> 0.184.0
+- datalens-ui: 0.1462.0 -> 0.1485.0
+
+### Changes
+
+- Add dataset optimize join (required) field ([ui:#810](https://github.com/datalens-tech/datalens-ui/pull/810))
+- Enable chart cross filteration ([ui:#827](https://github.com/datalens-tech/datalens-ui/pull/827))
+- Fix chart cross filteration setting in widget dialog ([ui:#823](https://github.com/datalens-tech/datalens-ui/pull/823))
+- Add chart cross filteration settings on demo with d3 charts ([us:#104](https://github.com/datalens-tech/datalens-ui/pull/104))
+- Improve render time for multidataset charts data ([ui:#820](https://github.com/datalens-tech/datalens-ui/pull/820))
+- Fix drillDown with datetime field ([ui:#814](https://github.com/datalens-tech/datalens-ui/pull/814))
+- Fix chart widget loading in mobile ([ui:#803](https://github.com/datalens-tech/datalens-ui/pull/803))
+- Collections and workbooks UI improvements ([ui:#707](https://github.com/datalens-tech/datalens-ui/pull/707))
+
+## 2024-03-22
+
+- datalens-us: 0.175.0 -> 0.179.0
+- datalens-ui: 0.1440.0 -> 0.1462.0
+
+### Changes
+- Fix nginx port 80 permission denied on ubuntu 16 ([ui:#797](https://github.com/datalens-tech/datalens-ui/pull/797))
+- Fix ql tabs styles ([ui:#795](https://github.com/datalens-tech/datalens-ui/pull/795))
+- Fix both way connection selection total connections reset for dash relations ([ui:#777](https://github.com/datalens-tech/datalens-ui/pull/777))
+- Fix subtotals for NULL values for pivot tables ([ui:#776](https://github.com/datalens-tech/datalens-ui/pull/776))
+
 ## 2024-03-18
 
 ### Updated images
