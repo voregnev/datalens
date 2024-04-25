@@ -105,7 +105,7 @@ services:
 
   datalens:
     container_name: datalens-ui
-    image: akrasnov87/datalens-ui:0.1532.4
+    image: akrasnov87/datalens-ui:0.1532.5
     #image: ghcr.io/datalens-tech/datalens-ui:0.1532.0
     ports:
       - ${UI_PORT:-8080}:8080
