@@ -123,6 +123,7 @@ If `datalens-us` container does not start even though you provided correct certi
 
 `docker-compose-dev.yml` is a special compose file that is needed only for development purposes. When you run DataLens in production mode, you always need to use `docker-compose.yml`. The `docker-compose up` command uses it by default. 
 
+<<<<<<< HEAD
 #### Хочу отключить авторизацию RPC
 
 Просто закомментируйте `NODE_RPC_URL` в `docker-compose.yml`
@@ -174,3 +175,27 @@ docker save -o containers/datalens-data-api.tar ghcr.io/datalens-tech/datalens-d
 docker save -o containers/datalens-us.tar akrasnov87/datalens-us:0.189.0
 docker save -o containers/datalens-ui.tar akrasnov87/datalens-ui:0.1532.0
 </pre>
+=======
+
+#### What are the minimum system requirements?
+
+* datalens-ui - 512 MB RAM
+
+* datalens-data-api - 1 GB RAM
+
+* datalens-control-api - 512 MB RAM
+
+* datalens-us - 512 MB RAM
+
+* datalens-pg-compeng - 1 GB RAM
+
+* datalens-pg-us - 512 MB RAM
+
+Summary:
+
+* RAM - 4 GB
+
+* CPU - 2 CORES
+
+This is minimal basic system requirements for OpenSource DataLens installation. Аctual consumption of VM resources depends on the complexity of requests to connections, connections types, the number of users and processing speed at the source level
+>>>>>>> e920dbd329391b2129912326323800678d8d1840

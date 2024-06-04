@@ -1,4 +1,118 @@
-# Changelog
+## v1.0.0 (2024-05-31)
+
+### Changes
+- Introducing the new versioning system
+
+
+## 2024-05-30
+
+- datalens-control-api: 0.2080.0 -> 0.2091.0
+- datalens-data-api: 0.2080.0 -> 0.2091.0
+
+### Changes
+
+- Add IMAGE markup formula ([backend:#422](https://github.com/datalens-tech/datalens-backend/pull/422))
+- Add load_preview_by_default field to datasets ([backend:#433](https://github.com/datalens-tech/datalens-backend/pull/433))
+- Add rate limiting config ([backend:#441](https://github.com/datalens-tech/datalens-backend/pull/441))
+- Add trace_id to logging contexts ([backend:#442](https://github.com/datalens-tech/datalens-backend/pull/442))
+
+## 2024-05-28
+
+- datalens-us: 0.202.0 -> 0.204.0
+- datalens-ui: 0.1641.0 -> 0.1675.0
+
+### Changes
+
+- Fix widget params with invalid values ([ui:#1008](https://github.com/datalens-tech/datalens-ui/pull/1008))
+- Fix table rows selection on Windows & Linux (for cross chart filtration) ([ui:#1009](https://github.com/datalens-tech/datalens-ui/pull/1009))
+- Support widget selection in dash relations ([ui:#997](https://github.com/datalens-tech/datalens-ui/pull/997))
+- Disable paste for entries linked to another workbook\directory ([ui:#824](https://github.com/datalens-tech/datalens-ui/pull/824))
+- Display dash info by url param (`_opened_info=1`) ([ui:#1012](https://github.com/datalens-tech/datalens-ui/pull/1012))
+- Support adding dataset in control dialog by link ([ui:#1017](https://github.com/datalens-tech/datalens-ui/pull/1017))
+- Remove custom sort from manageTooltipConfig ([ui:#1023](https://github.com/datalens-tech/datalens-ui/pull/1023))
+- Add hint for selectors and table header ([ui:#1030](https://github.com/datalens-tech/datalens-ui/pull/1030))
+- Move RelativeDatesPicker to new DatePicker component ([ui:#1024](https://github.com/datalens-tech/datalens-ui/pull/1024))
+- Normalize yfm styles between chart and dash ([ui:#1036](https://github.com/datalens-tech/datalens-ui/pull/1036))
+
+## 2024-05-20
+
+- datalens-us: 0.192.0 -> 0.202.0
+- datalens-ui: 0.1586.0 -> 0.1641.0
+
+### Changes
+
+- Fix markdown term plugin ([ui:#950](https://github.com/datalens-tech/datalens-ui/pull/950))
+- Change position of action panel on dash ([ui:#949](https://github.com/datalens-tech/datalens-ui/pull/949))
+- Fix `p` template margin styles for markdown ([ui:#954](https://github.com/datalens-tech/datalens-ui/pull/954))
+- Fix png images background styles in yfm ([ui:#958](https://github.com/datalens-tech/datalens-ui/pull/958))
+- Fix datepicker focus behavior on clear ([ui:#961](https://github.com/datalens-tech/datalens-ui/pull/961))
+- Added reload event and render notification for charts in embedded mode ([ui:#964](https://github.com/datalens-tech/datalens-ui/pull/964))
+- Fix dataset source table styles ([ui:#969](https://github.com/datalens-tech/datalens-ui/pull/969))
+- Fix markup item check ([ui:#971](https://github.com/datalens-tech/datalens-ui/pull/971))
+- Fix tree-colors palette coloring ([ui:#986](https://github.com/datalens-tech/datalens-ui/pull/986))
+- Fix duplicating filters on diff apply for wizard Undo ([ui:#983](https://github.com/datalens-tech/datalens-ui/pull/983))
+- Fix tag param with big value in params settings section in widgets ([ui:#993](https://github.com/datalens-tech/datalens-ui/pull/993))
+- Fix retry handler in case of connection data fetching failure ([ui:#996](https://github.com/datalens-tech/datalens-ui/pull/996))
+- Hierarchy chart warning ([ui:#850](https://github.com/datalens-tech/datalens-ui/pull/850))
+- Fix dataset select position (wizard) ([ui:#1000](https://github.com/datalens-tech/datalens-ui/pull/1000))
+- Fix title bg in edit mode on contrast theme ([ui:#1001](https://github.com/datalens-tech/datalens-ui/pull/1001))
+
+## 2024-05-02
+
+### Updated images
+- datalens-control-api: 0.2058.0 -> 0.2080.0
+- datalens-data-api: 0.2058.0 -> 0.2080.0
+
+### Changes
+
+- Add image markup ([backend:#408](https://github.com/datalens-tech/datalens-backend/pull/408))
+- Allow to disable joins optimization ([backend:#329](https://github.com/datalens-tech/datalens-backend/pull/329))
+- Allow null as a default for LAG in CH ([backend:#395](https://github.com/datalens-tech/datalens-backend/pull/395)
+- Typed query processor improvements
+- Add execution timeout to PG, ClickHouse connectors
+- Enable MySQL as connector type ([backend:#409](https://github.com/datalens-tech/datalens-backend/pull/409))
+- Enable Greenplum as connector type ([backend:#410](https://github.com/datalens-tech/datalens-backend/pull/410))
+
+[Full changelog](https://github.com/datalens-tech/datalens-backend/releases/tag/v0.2080.0).
+
+## 2024-04-27
+
+- datalens-ui: 0.1564.0 -> 0.1586.0
+
+### Changes
+
+- Improve calendar component in connections ([ui:#913](https://github.com/datalens-tech/datalens-ui/pull/913))
+- Refactor mobile header + mobile fixes ([ui:#918](https://github.com/datalens-tech/datalens-ui/pull/918))
+- Fix breadcrumbs styles for full-width stretching ([ui:#922](https://github.com/datalens-tech/datalens-ui/pull/922))
+- Fix dash white body background ([ui:#924](https://github.com/datalens-tech/datalens-ui/pull/924))
+
+Markdown text widget improvements:
+- Fix term display ([ui:#914](https://github.com/datalens-tech/datalens-ui/pull/914))
+- Add focus grid item z-index ([ui:#905](https://github.com/datalens-tech/datalens-ui/pull/905))
+- Enable focusable elements for dashkit ([ui:#915](https://github.com/datalens-tech/datalens-ui/pull/915))
+- Fix hr in yfm ([ui:#926](https://github.com/datalens-tech/datalens-ui/pull/926))
+- Support term color ([ui:#929](https://github.com/datalens-tech/datalens-ui/pull/929))
+- Fix yfm term jump ([ui:#931](https://github.com/datalens-tech/datalens-ui/pull/931))
+- Fix latex render after edit ([ui:#933](https://github.com/datalens-tech/datalens-ui/pull/933))
+
+## 2024-04-22
+
+- datalens-us: 0.189.0 -> 0.192.0
+- datalens-ui: 0.1532.0 -> 0.1564.0
+
+### Changes
+
+- Fix color and ellipsis styles in Breadcrumbs ([ui:#882](https://github.com/datalens-tech/datalens-ui/pull/882))
+- Fix chart inspector dialog styles ([ui:#910](https://github.com/datalens-tech/datalens-ui/pull/910))
+- Remove extra rerenders on text widgets ([ui:#911](https://github.com/datalens-tech/datalens-ui/pull/911))
+- Fix autoheight in texts widgets with formula & magiclinks ([ui:#912](https://github.com/datalens-tech/datalens-ui/pull/912))
+
+Markdown text widget improvements:
+- Fix markdown chart autoheight on cut expand ([ui:#889](https://github.com/datalens-tech/datalens-ui/pull/889))
+- Add markdown term, remove overflow on higher widget wrapper ([ui:#890](https://github.com/datalens-tech/datalens-ui/pull/890))
+- Add markdown colorify ([ui:#894](https://github.com/datalens-tech/datalens-ui/pull/894))
+- Yfm bugfixes ([ui:#899](https://github.com/datalens-tech/datalens-ui/pull/899))
+- Fix term popup background ([ui:#904](https://github.com/datalens-tech/datalens-ui/pull/904))
 
 ## 2024-04-27
 
