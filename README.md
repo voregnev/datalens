@@ -2,7 +2,24 @@
 
 [**DataLens**](https://datalens.tech) is a modern business intelligence and data visualization system. It was developed and extensively used as a primary BI tool in Yandex and is also available as a part of [Yandex Cloud](https://datalens.yandex.com) platform. See also [our roadmap](https://github.com/orgs/datalens-tech/projects/1) and [community in telegram](https://t.me/YandexDataLens).
 
-## Мои примечания
+## Запуск Datalens с авторизацией
+
+<pre>
+git clone https://github.com/akrasnov87/datalens && cd datalens
+docker compose -f docker-compose-demo.yml --env-file ./.env.demo up -d
+</pre>
+
+### Авторизация
+
+БД по умолчанию есть три пользователя:
+
+* master - пользователь с максимальными правами
+* admin - пользователь с правами для просмотра и редактирования информации по указаному `project_id`
+* user - пользователь для просмотра данных
+
+Пароль по умолчанию у все `qwe-123`
+
+### Мои примечания
 С репозитория `https://github.com/datalens-tech/datalens` были скачены и изменены:
 
 * datalens-backend
@@ -22,16 +39,6 @@
 * [datalens-auth](https://github.com/akrasnov87/datalens-auth)
 
 Исходный код БД [us-db-ci_purgeable](https://github.com/akrasnov87/us-db-ci_purgeable)
-
-### Авторизация
-
-Если используется компонет [datalens-auth](https://github.com/akrasnov87/datalens-auth), то в БД по умолчанию есть три пользователя:
-
-* master
-* admin
-* user
-
-Пароль по умолчанию у все `qwe-123`
 
 ## Getting started
 
