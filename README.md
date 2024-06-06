@@ -23,6 +23,16 @@
 
 Исходный код БД [us-db-ci_purgeable](https://github.com/akrasnov87/us-db-ci_purgeable)
 
+### Авторизация
+
+Если используется компонет [datalens-auth](https://github.com/akrasnov87/datalens-auth), то в БД по умолчанию есть три пользователя:
+
+* master
+* admin
+* user
+
+Пароль по умолчанию у все `qwe-123`
+
 ## Getting started
 
 ### Installing Docker
