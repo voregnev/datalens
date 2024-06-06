@@ -21,6 +21,8 @@
 
 * [datalens-auth](https://github.com/akrasnov87/datalens-auth)
 
+Исходный код БД [us-db-ci_purgeable](https://github.com/akrasnov87/us-db-ci_purgeable)
+
 ## Getting started
 
 ### Installing Docker
@@ -179,7 +181,7 @@ git pull upstream main
 ## Инструкция по разворачиванию локальной копии
 
 - запустить первичный проект
-- сделать копию us-db-ci_purgeable
+- сделать копию [us-db-ci_purgeable](https://github.com/akrasnov87/us-db-ci_purgeable)
 - через pg_admin сделать резервное копирование данных (только данных) - в настройках использовать INSERT
 - применить инструкцию в проекте (нужно исправить ошибку с функцией naturalsort)
 
