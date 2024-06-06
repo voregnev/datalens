@@ -30,8 +30,8 @@ docker compose -f docker-compose-demo.yml --env-file ./.env.demo up -d
 Изменённые версии:
 
 * [datalens-backend](https://github.com/akrasnov87/datalens-backend)
-* [datalens-us](https://github.com/akrasnov87/datalens-ui)
-* [datalens-ui](https://github.com/akrasnov87/datalens-us)
+* [datalens-us](https://github.com/akrasnov87/datalens-us)
+* [datalens-ui](https://github.com/akrasnov87/datalens-ui)
 * [datalens](https://github.com/akrasnov87/datalens)
 
 Создан новый компонент для авторизации:
