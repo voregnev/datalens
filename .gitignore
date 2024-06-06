@@ -7,5 +7,7 @@ pg-demo-connection/data
 certs
 .DS_Store
 .idea
-.env*
+.env.iserv
+.env
 containers
+docker-compose-prod.yml

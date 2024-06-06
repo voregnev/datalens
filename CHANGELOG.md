@@ -3,7 +3,6 @@
 ### Changes
 - Introducing the new versioning system
 
-
 ## 2024-05-30
 
 - datalens-control-api: 0.2080.0 -> 0.2091.0

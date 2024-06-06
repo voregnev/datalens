@@ -3,10 +3,23 @@
 [**DataLens**](https://datalens.tech) is a modern business intelligence and data visualization system. It was developed and extensively used as a primary BI tool in Yandex and is also available as a part of [Yandex Cloud](https://datalens.yandex.com) platform. See also [our roadmap](https://github.com/orgs/datalens-tech/projects/1) and [community in telegram](https://t.me/YandexDataLens).
 
 ## Мои примечания
-С репозитория `https://github.com/datalens-tech/datalens` должны быть скачены:
+С репозитория `https://github.com/datalens-tech/datalens` были скачены и изменены:
+
 * datalens-backend
 * datalens-ui
-* datalens-us (данный модуль изменён и хранится тут `https://github.com/akrasnov87/datalens-us`). Внесены доработки для интергации с RPC на NodeJS
+* datalens-us
+* datalens
+
+Изменённые версии:
+
+* [datalens-backend](https://github.com/akrasnov87/datalens-backend)
+* [datalens-us](https://github.com/akrasnov87/datalens-ui)
+* [datalens-ui](https://github.com/akrasnov87/datalens-us)
+* [datalens](https://github.com/akrasnov87/datalens)
+
+Создан новый компонент для авторизации:
+
+* [datalens-auth](https://github.com/akrasnov87/datalens-auth)
 
 ## Getting started
 
@@ -39,10 +52,10 @@ If you want to use a different port (e.g. `8081`), you can set it using the `UI_
 UI_PORT=8081 docker compose up
 ```
 
-Для подключения к RPC требуется указать аргумент `NODE_RPC_URL`, Данный аргумент позволяет прокидывать авторизованные данные между `datalens` и `rpc node`.
+Для подключения компонета авторизации ([datalens-auth](https://github.com/akrasnov87/datalens-auth)) требуется передать параметр `NODE_RPC_URL`
 
 ```bash
-NODE_RPC_URL=http://localhost:5000/dev/rpc docker compose up
+NODE_RPC_URL=http://localhost:7000/demo/rpc docker compose up
 ```
 
 
@@ -99,6 +112,7 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm;
 CREATE EXTENSION IF NOT EXISTS btree_gin;
 CREATE EXTENSION IF NOT EXISTS btree_gist;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 ```
 
 If this attempt is unsuccessful, try to install dependencies by database admin and add param `METADATA_SKIP_INSTALL_DB_EXTENSIONS=1` on startup, this parameter allows the app to skip installing extensions.
@@ -123,20 +137,33 @@ If `datalens-us` container does not start even though you provided correct certi
 
 `docker-compose-dev.yml` is a special compose file that is needed only for development purposes. When you run DataLens in production mode, you always need to use `docker-compose.yml`. The `docker-compose up` command uses it by default. 
 
-<<<<<<< HEAD
 #### Хочу отключить авторизацию RPC
 
-Просто закомментируйте `NODE_RPC_URL` в `docker-compose.yml`
+Просто закомментируйте `NODE_RPC_URL` в `docker-compose*.yml`
 
 #### Как передать переменные
 
 Лучше создать в корне проекта файл .env и записать туда:
 <pre>
 HC="1"
-NODE_RPC_URL="http://10.10.6.100:5000/dev/rpc"
+NODE_RPC_URL="http://localhost:7000/demo/rpc"
 </pre>
 
 Для запуска выполнить `docker compose --env-file ./.env up`
+
+##### Список переменных
+* APP_ENV: string - тип приложения, пространства. Добавляется к наименованию контейнеров.
+* METADATA_POSTGRES_DSN_LIST: string - подключение к БД PostgreSQL. По умолчанию `postgres://us:us@pg-us:5432/us-db-ci_purgeable`
+* METADATA_SKIP_INSTALL_DB_EXTENSIONS: integer - признак для пропуска установки расширений. По умолчанию `0`
+
+При подключении компонета авторизации [datalens-auth](https://github.com/akrasnov87/datalens-auth) устанавливается расширение `pgcrypto`.
+
+* USE_DEMO_DATA: integer - признак загрузки демонстрационных данных. По умолчанию `1`
+* PROJECT_ID: string - наименование проекта для public.workbooks и public.collections. По умолчанию `datalens-demo`
+* HC: integer - признак подключения чартов Highcharts
+* NODE_RPC_URL: string - строка подключения компонета авторизации [datalens-auth](https://github.com/akrasnov87/datalens-auth). По умолчанию `http://us-auth/demo/rpc`
+* AUTH_ENV: string - пространство имён для компонета авторизации [datalens-auth](https://github.com/akrasnov87/datalens-auth). По умолчанию `demo`
+* UI_PORT: integer - порт, на котором поднимится Datalens. По умолчанию 8080
 
 #### Почему при запуске через авторизацию система не работает
 
@@ -151,33 +178,35 @@ git pull upstream main
 
 ## Инструкция по разворачиванию локальной копии
 
-- запустить первияный проект
+- запустить первичный проект
 - сделать копию us-db-ci_purgeable
-- через pg_admin сделать резервное копирование данных (только данных) - в начтройках использовать INSERT
-- применить инструкцию в проекте (нуждно исправить ошибку с функцией naturalsort)
+- через pg_admin сделать резервное копирование данных (только данных) - в настройках использовать INSERT
+- применить инструкцию в проекте (нужно исправить ошибку с функцией naturalsort)
 
-### Запуск для iserv
+### Запуск
 В корне проекта есть специальный `compose` файл:
 
 <pre>
-docker compose -p datalens_dev -f docker-compose-lite.yml --env-file ./.env.iserv up -d
+docker compose -p datalens_demo -f docker-compose-demo.yml --env-file ./.env.demo up -d
 </pre>
 
 Просмотр логов:
 <pre>
-docker compose -p datalens_dev --env-file ./.env.datalens.dev logs -n 100
+docker compose -p datalens_demo -f docker-compose-demo.yml --env-file ./.env.demo logs -n 100
 </pre>
 
 ## Локальное сохранение
 <pre>
-docker save -o containers/datalens-control-api.tar akrasnov87/datalens-control-api:0.2058.0
-docker save -o containers/datalens-data-api.tar ghcr.io/datalens-tech/datalens-data-api:0.2058.0
-docker save -o containers/datalens-us.tar akrasnov87/datalens-us:0.189.0
-docker save -o containers/datalens-ui.tar akrasnov87/datalens-ui:0.1532.0
+docker save -o containers/datalens-control-api.tar akrasnov87/datalens-control-api:0.2091.0
+docker save -o containers/datalens-data-api.tar ghcr.io/datalens-tech/datalens-data-api:0.2091.0
+docker save -o containers/datalens-us.tar akrasnov87/datalens-us:0.204.0
+docker save -o containers/datalens-ui.tar akrasnov87/datalens-ui:0.1675.0
+docker save -o containers/datalens-auth.tar akrasnov87/datalens-auth:0.1.0
 </pre>
-=======
 
 #### What are the minimum system requirements?
+
+* datalens-auth - 256 MB RAM
 
 * datalens-ui - 512 MB RAM
 
@@ -198,4 +227,3 @@ Summary:
 * CPU - 2 CORES
 
 This is minimal basic system requirements for OpenSource DataLens installation. Аctual consumption of VM resources depends on the complexity of requests to connections, connections types, the number of users and processing speed at the source level
->>>>>>> e920dbd329391b2129912326323800678d8d1840

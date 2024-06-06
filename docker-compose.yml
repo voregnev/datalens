@@ -30,6 +30,8 @@ services:
       - us
     volumes:
       - ./backend-configs:/etc/backend-configs
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   data-api:
     container_name: datalens-data-api
@@ -55,6 +57,8 @@ services:
       - pg-compeng
     volumes:
       - ./backend-configs:/etc/backend-configs
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   pg-demo-connection:
     container_name: datalens-pg-demo-connection
@@ -96,12 +100,26 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
-      NODE_RPC_URL: ${NODE_RPC_URL:-0}
+      NODE_RPC_URL: ${NODE_RPC_URL:-http://auth/${AUTH_ENV}/rpc}
 
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./certs:/certs
+
+  auth:
+    container_name: datalens-auth
+    image: akrasnov87/datalens-auth:0.1.0
+    ports:
+      - 7000:80
+    environment:
+      APP_ENV: ${AUTH_ENV}
+      NODE_VPATH: /${AUTH_ENV}/
+      CONNECT_STR: ${METADATA_POSTGRES_DSN_LIST}
+      NODE_THREAD: 2
+      VERSION_CONTAINER: 0.1.0
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   datalens:
     container_name: datalens-ui
@@ -111,6 +129,7 @@ services:
       - ${UI_PORT:-8080}:8080
     depends_on:
       - us
+      - auth
       - control-api
       - data-api
       - pg-demo-connection
@@ -125,3 +144,5 @@ services:
       BI_DATA_ENDPOINT: "http://data-api:8080"
       NODE_EXTRA_CA_CERTS: "/usr/local/share/ca-certificates/cert.pem"
       HC: ${HC:-0}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
