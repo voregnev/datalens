@@ -17,7 +17,7 @@ docker compose -f docker-compose-demo.yml --env-file ./.env.demo up -d
 * admin - пользователь с правами для просмотра и редактирования информации по указаному `project_id`
 * user - пользователь для просмотра данных
 
-Пароль по умолчанию у все `qwe-123`
+Пароль по умолчанию у всех: `qwe-123`
 
 ### Мои примечания
 С репозитория `https://github.com/datalens-tech/datalens` были скачены и изменены:
@@ -39,6 +39,11 @@ docker compose -f docker-compose-demo.yml --env-file ./.env.demo up -d
 * [datalens-auth](https://github.com/akrasnov87/datalens-auth)
 
 Исходный код БД [us-db-ci_purgeable](https://github.com/akrasnov87/us-db-ci_purgeable)
+
+### Авторы доработки
+
+* Александр Краснов - https://github.com/akrasnov87
+* Кирилл Автономов -  https://github.com/kirillva
 
 ## Getting started
 
