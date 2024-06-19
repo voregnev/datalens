@@ -68,8 +68,8 @@ services:
       POSTGRES_USER: demo
       POSTGRES_PASSWORD: demo
     volumes:
-      - ./pg-demo-connection/init:/docker-entrypoint-initdb.d
-      - ./pg-demo-connection/data:/var/lib/postgresql/data
+      - /Users/kolia/datalens/pg-demo-connection/init:/docker-entrypoint-initdb.d
+      - /Users/kolia/datalens/pg-demo-connection/data:/var/lib/postgresql/data
 
   pg-us:
     container_name: datalens-pg-us
@@ -100,7 +100,7 @@ services:
       USE_DEMO_DATA: ${USE_DEMO_DATA:-1}
       HC: ${HC:-0}
       NODE_EXTRA_CA_CERTS: /certs/root.crt
-      NODE_RPC_URL: ${NODE_RPC_URL:-http://auth/${AUTH_ENV}/rpc}
+      NODE_RPC_URL: ${NODE_RPC_URL:-http://auth/$AUTH_ENV/rpc}
 
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -146,3 +146,24 @@ services:
       HC: ${HC:-0}
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+  clickhouse:
+    container_name: clickhouse
+    image: clickhouse/clickhouse-server
+    environment:
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER}
+      CLICKHOUSE_DB: ${MYSQL_DB}
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - 8123:8123
+
+    volumes:
+    - ./ch/init:/docker-entrypoint-initdb.d
+    - ./ch/data:/var/lib/clickhouse/ 
+    - ./ch/log:/var/log/clickhouse-server/
