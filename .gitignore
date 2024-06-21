@@ -11,3 +11,5 @@ certs
 .env
 containers
 docker-compose-prod.yml
+clickhouse/data
+clickhouse/log
