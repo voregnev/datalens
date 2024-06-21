@@ -13,3 +13,7 @@ containers
 docker-compose-prod.yml
 ch/data
 ch/log
+mysql/log
+mysql/data
+mysql/backup
+mysql/init/01-fill.sql

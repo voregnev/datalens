@@ -162,8 +162,28 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - 8123:8123
+      - 9000:9000
 
     volumes:
     - ./ch/init:/docker-entrypoint-initdb.d
-    - ./ch/data:/var/lib/clickhouse/ 
+    - ./ch/data:/var/lib/clickhouse/
     - ./ch/log:/var/log/clickhouse-server/
+    depends_on:
+    - mysql
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    environment:
+
+      MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    volumes:
+    - ./mysql/init:/docker-entrypoint-initdb.d
+    - ./mysql/data:/var/lib/mysql
+    - ./mysql/log:/var/log/mysql
+    - ./mysql/my.cnf:/etc/my.cnf
+    ports:
+      - 3306:3306
+
