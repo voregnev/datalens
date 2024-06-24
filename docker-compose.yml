@@ -109,7 +109,7 @@ services:
 
   auth:
     container_name: datalens-auth
-    image: akrasnov87/datalens-auth:0.1.0
+    image: akrasnov87/datalens-auth:0.1.1
     ports:
       - 7000:80
     environment:
@@ -117,14 +117,14 @@ services:
       NODE_VPATH: /${AUTH_ENV}/
       CONNECT_STR: ${METADATA_POSTGRES_DSN_LIST}
       NODE_THREAD: 2
-      VERSION_CONTAINER: 0.1.0
+      VERSION_CONTAINER: 0.1.1
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
   datalens:
     container_name: datalens-ui
-    image: akrasnov87/datalens-ui:0.1675.0
-    #image: ghcr.io/datalens-tech/datalens-ui:0.1675.0
+    #image: akrasnov87/datalens-ui:0.1675.0
+    image: ghcr.io/voregnev/datalens-ui:0.0.0
     ports:
       - ${UI_PORT:-8080}:8080
     depends_on:
@@ -133,6 +133,8 @@ services:
       - control-api
       - data-api
       - pg-demo-connection
+      - clickhouse
+      - mysql
     environment:
       APP_MODE: "full"
       APP_ENV: "production"
@@ -152,8 +154,8 @@ services:
     image: clickhouse/clickhouse-server
     environment:
       CLICKHOUSE_USER: ${CLICKHOUSE_USER}
-      CLICKHOUSE_DB: ${MYSQL_DB}
-      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+       # CLICKHOUSE_DB: ${MYSQL_DB}
+       # CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
       CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_PORT: ${MYSQL_PORT}
@@ -175,10 +177,10 @@ services:
     container_name: mysql
     image: mysql
     environment:
-
-      MYSQL_ROOT_PASSWORD: $MYSQL_PASSWORD
-      MYSQL_USER: $MYSQL_USER
-      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
     - ./mysql/init:/docker-entrypoint-initdb.d
     - ./mysql/data:/var/lib/mysql
